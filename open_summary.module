@@ -10,7 +10,6 @@ use Drupal\Core\Field\WidgetInterface;
 use Drupal\Core\Field\FieldDefinitionInterface;
 use Drupal\Core\Form\FormStateInterface;
 
-
 /**
  * Implements hook_help().
  */
@@ -59,7 +58,7 @@ function open_summary_field_widget_settings_summary_alter(&$summary, $context) {
 function open_summary_field_widget_form_alter(&$element, FormStateInterface $form_state, $context) {
   if ($context['widget']->getPluginId() == 'text_textarea_with_summary') {
     if ($context['widget']->getThirdPartySetting('open_summary', 'summary_open')) {
-      // turn off the js that does the show/hide link
+      // Turn off the js that does the show/hide link.
       $i = array_search('text/drupal.text', $element['summary']['#attached']['library']);
       if ($i !== FALSE) {
         unset($element['summary']['#attached']['library'][$i]);
